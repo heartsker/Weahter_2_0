@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="Weather" targetName="Weather" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1ddcc2bb-dd6c-4d18-b9ab-235c5cc14b1d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ProjectId" id="1n9uZwo8PasfSLajU6K16UwEQSI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmake-build-debug" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Weather" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Weather" TARGET_NAME="Weather" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Weather" RUN_TARGET_NAME="Weather">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ddcc2bb-dd6c-4d18-b9ab-235c5cc14b1d" name="Default Changelist" comment="" />
+      <created>1610814687774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610814687774</updated>
+      <workItem from="1610814692743" duration="5311000" />
+      <workItem from="1611068799475" duration="2449000" />
+      <workItem from="1611071366726" duration="2327000" />
+      <workItem from="1611073963057" duration="96000" />
+      <workItem from="1611230982489" duration="6681000" />
+      <workItem from="1611316891531" duration="3303000" />
+      <workItem from="1611322186159" duration="1139000" />
+      <workItem from="1611583182951" duration="3938000" />
+      <workItem from="1611587274965" duration="2273000" />
+      <workItem from="1611837209659" duration="8662000" />
+      <workItem from="1612202828814" duration="2113000" />
+      <workItem from="1612214037587" duration="14000" />
+      <workItem from="1612214649706" duration="5667000" />
+      <workItem from="1612280913679" duration="5624000" />
+      <workItem from="1612298661832" duration="507000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2508" height="331" key="GridCell.Tab.0.bottom" timestamp="1612299191560">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="331" key="GridCell.Tab.0.bottom/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612299191560" />
+    <state width="2508" height="331" key="GridCell.Tab.0.bottom/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037828" />
+    <state width="2508" height="331" key="GridCell.Tab.0.center" timestamp="1612299191559">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="331" key="GridCell.Tab.0.center/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612299191559" />
+    <state width="2508" height="331" key="GridCell.Tab.0.center/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037823" />
+    <state width="2508" height="331" key="GridCell.Tab.0.left" timestamp="1612299191558">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="331" key="GridCell.Tab.0.left/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612299191558" />
+    <state width="2508" height="331" key="GridCell.Tab.0.left/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037808" />
+    <state width="2508" height="331" key="GridCell.Tab.0.right" timestamp="1612299191560">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="331" key="GridCell.Tab.0.right/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612299191560" />
+    <state width="2508" height="331" key="GridCell.Tab.0.right/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037827" />
+    <state width="2508" height="396" key="GridCell.Tab.1.bottom" timestamp="1612286631493">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="396" key="GridCell.Tab.1.bottom/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612286631493" />
+    <state width="2508" height="396" key="GridCell.Tab.1.bottom/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037209" />
+    <state width="2508" height="396" key="GridCell.Tab.1.center" timestamp="1612286631491">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="396" key="GridCell.Tab.1.center/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612286631491" />
+    <state width="2508" height="396" key="GridCell.Tab.1.center/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037208" />
+    <state width="2508" height="396" key="GridCell.Tab.1.left" timestamp="1612286631487">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="396" key="GridCell.Tab.1.left/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612286631487" />
+    <state width="2508" height="396" key="GridCell.Tab.1.left/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037207" />
+    <state width="2508" height="396" key="GridCell.Tab.1.right" timestamp="1612286631492">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state width="2508" height="396" key="GridCell.Tab.1.right/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612286631492" />
+    <state width="2508" height="396" key="GridCell.Tab.1.right/0.25.1440.875/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1612283037208" />
+    <state x="-1896" y="-272" key="SettingsEditor" timestamp="1611069059795">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state x="-1896" y="-272" key="SettingsEditor/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1611069059795" />
+    <state x="-1827" y="-150" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1611587134663">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state x="-1827" y="-150" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1611587134663" />
+    <state x="-1699" y="-216" width="838" height="1032" key="search.everywhere.popup" timestamp="1611586160187">
+      <screen x="-2560" y="-540" width="2560" height="1440" />
+    </state>
+    <state x="-1699" y="-216" width="838" height="1032" key="search.everywhere.popup/0.0.1440.900/-2560.-540.2560.1440@-2560.-540.2560.1440" timestamp="1611586160187" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="CidrExceptionBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="data" language="ObjectiveC" />
+        <watch expression="forecast" language="ObjectiveC" />
+        <watch expression="str" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
