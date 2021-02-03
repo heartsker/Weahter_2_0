@@ -464,7 +464,7 @@ char* insert_string(char *s, char *n) {
     return s;
 }
 
-// generates message for city {-}[-]
+// generates message for city {+}[-]
 void get_message_for_city(FILE* Input) {
     char str[MAXN] = { 0 };
     strcpy(str, get_random_phrase(Input));
@@ -479,17 +479,22 @@ void get_message_for_city(FILE* Input) {
     strcpy(forecast.city, res);
 }
 
-// generates message for date {-}[-]
+// generates message for date {+}[-]
 void get_message_for_date(FILE* Input) {
+
+    int block = 0;
+    if (data.date.month <= 2) block = 0;
+    else if (data.date.month <= 5) block = 1;
+    else if (data.date.month <= 8) block = 2;
+    else if (data.date.month <= 11) block = 3;
+    else block = 0;
+
     char str[MAXN] = { 0 };
-    strcpy(str, get_random_phrase(Input));
+    strcpy(str, get_random_phrase_for_block(Input, block));
     str[strlen(str) - 1] = '\0';
 
     char wc = str[0];
     fori(strlen(str)) str[i] = str[i + 1];
-
-    char res[MAXN] = { 0 };
-    strcat(res, str);
 
     char date_str[MAXN] = { 0 };
 
@@ -503,15 +508,13 @@ void get_message_for_date(FILE* Input) {
         default:                                                        break;
     }
 
-    insert_string(res, date_str);
+    insert_string(str, date_str);
 
-    strcat(res, ".");
-
-    strcpy(forecast.date, res);
+    strcpy(forecast.date, str);
 }
 
-// generates message for horoscope {-}[-]
-void get_message_for_horoscope(FILE* Input) {
+// generates message for horoscope {+}[+]
+void get_message_for_horoscope(FILE* Input, FILE* Input_Prognosis) {
     char str[MAXN] = { 0 };
     strcpy(str, get_random_phrase(Input));
     str[strlen(str) - 1] = '\0';
@@ -527,13 +530,34 @@ void get_message_for_horoscope(FILE* Input) {
         strcat(str, " Сегодня день рождения празднует великолепный преподаватель из НИУ ВШЭ, выпускница школы номер 7, НГТУ им. Алексеева и просто хороший человек - Лупанова Елена Александровна!");
     }
 
+    char prog[MAXN] = { 0 };
+    strcpy(str, get_random_phrase(Input_Prognosis));
+    prog[strlen(prog) - 1] = '\0';
+
+    strcat(str, " ");
+    strcat(str, prog);
+
     strcpy(forecast.horoscope, str);
 }
 
-// generates message for temperature {-}[-]
+// generates message for temperature {+}[-]
 void get_message_for_temperature(FILE* Input_day, FILE* Input_night) {
+
+    int block = 0;
+    int aver_night = (data.temperature.high_temp_night + data.temperature.low_temp_night) / 2;
+
+    if (aver_night <= -30) block = 0;
+    else if (aver_night <= -15) block = 1;
+    else if (aver_night <= -5) block = 2;
+    else if (aver_night <= 0) block = 3;
+    else if (aver_night <= 5) block = 4;
+    else if (aver_night <= 10) block = 5;
+    else if (aver_night <= 20) block = 6;
+    else if (aver_night <= 30) block = 7;
+    else block = 8;
+
     char str_night[MAXN] = { 0 };
-    strcpy(str_night, get_random_phrase(Input_night));
+    strcpy(str_night, get_random_phrase_for_block(Input_night, block));
     str_night[strlen(str_night) - 1] = '\0';
 
     char tmp[MAXN] = { 0 };
@@ -543,8 +567,21 @@ void get_message_for_temperature(FILE* Input_day, FILE* Input_night) {
     strcpy(tmp, insert_number(str_night, data.temperature.high_temp_night));
     strcpy(str_night, tmp);
 
+    block = 0;
+    int aver_day = (data.temperature.high_temp_day + data.temperature.low_temp_day) / 2;
+
+    if (aver_day <= -30) block = 0;
+    else if (aver_day <= -15) block = 1;
+    else if (aver_day <= -5) block = 2;
+    else if (aver_day <= 0) block = 3;
+    else if (aver_day <= 5) block = 4;
+    else if (aver_day <= 10) block = 5;
+    else if (aver_day <= 20) block = 6;
+    else if (aver_day <= 30) block = 7;
+    else block = 8;
+
     char str_day[MAXN] = { 0 };
-    strcpy(str_day, get_random_phrase(Input_day));
+    strcpy(str_day, get_random_phrase_for_block(Input_day, block));
     str_day[strlen(str_day) - 1] = '\0';
 
     strcpy(tmp, "");
@@ -560,44 +597,44 @@ void get_message_for_temperature(FILE* Input_day, FILE* Input_night) {
     strcpy(forecast.temperature, str_night);
 }
 
-// generates message for pressure {-}[-]
+// generates message for pressure {+}[-]
 void get_message_for_pressure(FILE* Input) {
+
+    int block = 0;
+
+    if (data.pressure <= 700) block = 0;
+    else if (data.pressure <= 750) block = 1;
+    else if (data.pressure <= 770) block = 2;
+    else if (data.pressure <= 800) block = 3;
+    else if (data.pressure <= 850) block = 4;
+
     char str[MAXN] = { 0 };
-    strcpy(str, get_random_phrase(Input));
+
+    strcpy(str, get_random_phrase_for_block(Input, block));
     str[strlen(str) - 1] = '\0';
-
-    char tmp[MAXN] = { 0 };
-    strcpy(tmp, insert_number(str, data.pressure));
-    strcpy(str, tmp);
-
     strcpy(forecast.pressure, str);
 }
 
-// generates message for cloudiness {-}[-]
+// generates message for cloudiness {+}[-]
 void get_message_for_cloudiness(FILE* Input) {
-    char str[MAXN] = { 0 };
-    strcpy(str, get_random_phrase(Input));
-    str[strlen(str) - 1] = '\0';
-
-    char ins[MAXN] = { 0 };
+    int block = 0;
 
     switch (data.cloudiness) {
-        case clear:         { strcpy(ins, "ясно"); break; }
-        case shiny:         { strcpy(ins, "солнечно"); break; }
-        case little_cloudy: { strcpy(ins, "малая облачность"); break; }
-        case cloudy:        { strcpy(ins, "облачно"); break; }
-        case rainy:         { strcpy(ins, "пасмурно"); break; }
+        case clear:         { block = 0; break; }
+        case shiny:         { block = 1; break; }
+        case little_cloudy: { block = 2; break; }
+        case cloudy:        { block = 3; break; }
+        case rainy:         { block = 4; break; }
     }
 
-    char tmp[MAXN] = { 0 };
+    char str[MAXN] = { 0 };
 
-    strcpy(tmp, insert_string(str, ins));
-    strcpy(str, tmp);
-
+    strcpy(str, get_random_phrase_for_block(Input, block));
+    str[strlen(str) - 1] = '\0';
     strcpy(forecast.cloudiness, str);
 }
 
-// generates message for wind {-}[-]
+// generates message for wind {+}[+][-][-]
 void get_message_for_wind(FILE* Input_direction, FILE* Input_velocity, FILE* Input_dash) {
     char str_direction[MAXN] = { 0 };
     strcpy(str_direction, get_random_phrase(Input_direction));
@@ -617,44 +654,32 @@ void get_message_for_wind(FILE* Input_direction, FILE* Input_velocity, FILE* Inp
     strcpy(tmp, insert_string(str_direction, dir));
     strcpy(str_direction, tmp);
 
+    int block = 0;
+
+    if (2 <= data.wind.velocity && data.wind.velocity <= 3) block = 0;
+    if (2 <= data.wind.velocity && data.wind.velocity <= 3) block = 1;
+    if (4 <= data.wind.velocity && data.wind.velocity <= 6) block = 2;
+    if (7 <= data.wind.velocity && data.wind.velocity <= 10) block = 3;
+    if (11 <= data.wind.velocity && data.wind.velocity <= 14) block = 4;
+    if (15 <= data.wind.velocity && data.wind.velocity <= 24) block = 5;
+    if (25 <= data.wind.velocity && data.wind.velocity <= 32) block = 6;
+    if (33 <= data.wind.velocity) block = 7;
+
     char str_velocity[MAXN] = { 0 };
-    strcpy(str_velocity, get_random_phrase(Input_velocity));
+    strcpy(str_velocity, get_random_phrase_for_block(Input_velocity, block));
     str_velocity[strlen(str_velocity) - 1] = '\0';
 
-    char ins[MAXN] = { 0 };
+    block = 0;
 
-    if (2 <= data.wind.velocity && data.wind.velocity <= 3) strcpy(ins, "тихого ");
-    if (4 <= data.wind.velocity && data.wind.velocity <= 6) strcpy(ins, "легкого ");
-    if (7 <= data.wind.velocity && data.wind.velocity <= 10) strcpy(ins, "слабого ");
-    if (11 <= data.wind.velocity && data.wind.velocity <= 14) strcpy(ins, "умеренного ");
-    if (15 <= data.wind.velocity && data.wind.velocity <= 24) strcpy(ins, "сильного ");
-    if (25 <= data.wind.velocity && data.wind.velocity <= 32) strcpy(ins, "очень сильного ");
-    if (33 <= data.wind.velocity) strcpy(ins, "ураганного ");
-
-    strcpy(tmp, "");
-    strcpy(tmp, insert_string(str_velocity, ins));
-    strcpy(str_velocity, tmp);
-
-
-    if (data.wind.velocity <= 1) {
-        switch (rand() % 3) {
-            case 0: strcat(str_velocity, " В городе штиль.");
-            case 1: strcat(str_velocity, " Краткий прогноз - в городе штиль.");
-            case 2: strcat(str_velocity, " Метеорологи называют такой ветер штилем.");
-        }
-    }
-
-    strcpy(tmp, "");
-    strcpy(tmp, insert_number(str_velocity, data.wind.velocity));
-    strcpy(str_velocity, tmp);
+    if (data.wind.dash <= 2) block = 0;
+    if (3 <= data.wind.dash && data.wind.dash <= 6) block = 1;
+    if (7 <= data.wind.dash && data.wind.dash <= 10) block = 2;
+    if (11 <= data.wind.dash && data.wind.dash <= 20) block = 3;
+    if (21 <= data.wind.dash) block = 4;
 
     char str_dash[MAXN] = { 0 };
-    strcpy(str_dash, get_random_phrase(Input_dash));
+    strcpy(str_dash, get_random_phrase_for_block(Input_dash, block));
     str_dash[strlen(str_dash) - 1] = '\0';
-
-    strcpy(tmp, "");
-    strcpy(tmp, insert_number(str_dash, data.wind.dash));
-    strcpy(str_dash, tmp);
 
     if (data.wind.velocity <= 1 && data.wind.dash >= 2) {
         strcpy(str_dash, "");
@@ -690,47 +715,42 @@ void get_message_for_precipitation(FILE* Input) {
     char str[MAXN] = { 0 };
 
     strcpy(str, get_random_phrase_for_block(Input, block));
-
     str[strlen(str) - 1] = '\0';
-
     strcpy(forecast.precipitation, str);
 }
 
-// generates message for phenomena {-}[-]
+// generates message for phenomena {+}[+]
 void get_message_for_phenomena(FILE* Input) {
-    char str[MAXN] = { 0 };
-    strcpy(str, get_random_phrase(Input));
-    str[strlen(str) - 1] = '\0';
+    int block = 0;
 
-    char prec[MAXN] = { 0 };
     switch (data.phenomena) {
-        case hurricane:     { strcpy(prec, "ураган"); break; }
-        case no_phenomena:  { strcpy(prec, "скупой на наличие явлений день"); break; }
-        case tornado:       { strcpy(prec, "торнадо"); break; }
-        case storm:         { strcpy(prec, "буря"); break; }
-        case naked_ice:     { strcpy(prec, "гололедица"); break; }
-        case fog:           { strcpy(prec, "туман"); break; }
-        case eruption:      { strcpy(prec, "извержение вулкана"); break; }
-        case sand_storm:    { strcpy(prec, "песчаная буря"); break; }
-        case revolution:    { strcpy(prec, "Великая Революция"); break; }
+        case hurricane:     { block = 0; break; }
+        case no_phenomena:  { block = 1; break; }
+        case tornado:       { block = 2; break; }
+        case storm:         { block = 3; break; }
+        case naked_ice:     { block = 4; break; }
+        case fog:           { block = 5; break; }
+        case eruption:      { block = 6; break; }
+        case sand_storm:    { block = 7; break; }
+        case revolution:    { block = 8; break; }
     }
 
-    char tmp[MAXN] = { 0 };
-    strcpy(tmp, insert_string(str, prec));
-    strcpy(str, tmp);
+    char str[MAXN] = { 0 };
+    strcpy(str, get_random_phrase_for_block(Input, block));
+    str[strlen(str) - 1] = '\0';
 
     strcpy(forecast.phenomena, str);
 }
 
-// generates message for jokes {-}[-]
+// generates message for jokes {+}[+]
 void get_message_for_jokes(FILE* Input_cold, FILE* Input_hot, FILE* Input_wind) {
     char str[MAXN] = { 0 };
 
-    if (data.temperature.low_temp_day <= 0) {
+    if (data.temperature.low_temp_day <= -5) {
         strcpy(str, get_random_phrase(Input_cold));
         str[strlen(str) - 1] = '\0';
     }
-    if (data.temperature.high_temp_day > 0) {
+    if (data.temperature.high_temp_day > 15) {
         strcpy(str, get_random_phrase(Input_hot));
         str[strlen(str) - 1] = '\0';
     }
@@ -747,7 +767,10 @@ void get_message_for_jokes(FILE* Input_cold, FILE* Input_hot, FILE* Input_wind) 
 // generates message for news {-}[-]
 void get_message_for_news(FILE* Input) {
     char str[MAXN] = { 0 };
-    strcpy(str, get_random_phrase(Input));
+    strcpy(str, "Новости дня:\n");
+    strcat(str, get_random_phrase(Input));
+    strcpy(str, "\n");
+    strcat(str, get_random_phrase(Input));
     str[strlen(str) - 1] = '\0';
 
     strcpy(forecast.news, str);
@@ -755,7 +778,7 @@ void get_message_for_news(FILE* Input) {
 
 // generates whole forecast
 void get_forecast(FILE *Input_City,
-                  FILE* Input_Date, FILE* Input_Horoscope,
+                  FILE* Input_Date, FILE* Input_Horoscope, FILE* Input_Horoscope_Prognosis,
                   FILE *Input_Temp_day, FILE* Input_Temp_night,
                   FILE* Input_Pressure,
                   FILE* Input_Cloudiness,
@@ -769,7 +792,7 @@ void get_forecast(FILE *Input_City,
 
     get_message_for_date(Input_Date);
 
-    get_message_for_horoscope(Input_Horoscope);
+    get_message_for_horoscope(Input_Horoscope, Input_Horoscope_Prognosis);
 
     get_message_for_temperature(Input_Temp_day, Input_Temp_night);
 
@@ -799,6 +822,8 @@ int main() {
     Input_Date = fopen("Date.txt", "r");
     FILE *Input_Horoscope;
     Input_Horoscope = fopen("Horoscope.txt", "r");
+    FILE *Input_Horoscope_Prognosis;
+    Input_Horoscope_Prognosis = fopen("Horoscope_Prognosis.txt", "r");
     FILE *Input_Temp_day;
     Input_Temp_day = fopen("Temperature_day.txt", "r");
     FILE *Input_Temp_night;
@@ -832,7 +857,7 @@ int main() {
     input(In);
 
     get_forecast(Input_City,
-                 Input_Date, Input_Horoscope,
+                 Input_Date, Input_Horoscope, Input_Horoscope_Prognosis,
                  Input_Temp_day, Input_Temp_night,
                  Input_Pressure,
                  Input_Cloudiness,
